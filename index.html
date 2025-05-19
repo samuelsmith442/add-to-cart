@@ -1,11 +1,13 @@
 <!doctype html>
-<html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <title>Add to Cart</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -14,8 +16,17 @@
     </head>
     <body>
         <div class="container">
+            <div class="header">
+                <h1>Shopping List</h1>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+            </div>
             <img src="assets/cat.png">
-            <input type="text" id="input-field" placeholder="Bread">
+            <div class="input-container">
+                <input type="text" id="input-field" placeholder="Bread">
+                <input type="number" id="quantity-field" placeholder="Qty" min="1" value="1">
+            </div>
             <button id="add-button">Add to cart</button>
             <ul id="shopping-list">
             </ul>
