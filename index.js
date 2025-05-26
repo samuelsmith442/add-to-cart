@@ -22,14 +22,17 @@ function initializeTheme() {
     
     if (savedTheme === "dark") {
         document.body.classList.add("dark-mode")
+        document.documentElement.classList.add("dark-mode")
         toggleIconEl.textContent = "☀️"
     } else if (savedTheme === "light") {
         document.body.classList.remove("dark-mode")
+        document.documentElement.classList.remove("dark-mode")
         toggleIconEl.textContent = "🌙"
     } else {
         // Check system preference
         if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
             document.body.classList.add("dark-mode")
+            document.documentElement.classList.add("dark-mode")
             toggleIconEl.textContent = "☀️"
             localStorage.setItem("theme", "dark")
         } else {
@@ -42,10 +45,12 @@ function initializeTheme() {
 themeToggleEl.addEventListener("click", function() {
     if (document.body.classList.contains("dark-mode")) {
         document.body.classList.remove("dark-mode")
+        document.documentElement.classList.remove("dark-mode")
         toggleIconEl.textContent = "🌙"
         localStorage.setItem("theme", "light")
     } else {
         document.body.classList.add("dark-mode")
+        document.documentElement.classList.add("dark-mode")
         toggleIconEl.textContent = "☀️"
         localStorage.setItem("theme", "dark")
     }
@@ -102,7 +107,7 @@ function showValidationError(message) {
     if (!errorEl) {
         errorEl = document.createElement("p")
         errorEl.id = "error-message"
-        errorEl.style.color = "#d62828"
+        errorEl.style.color = "var(--error-color)"
         errorEl.style.fontSize = "16px"
         errorEl.style.margin = "5px 0"
         errorEl.style.textAlign = "center"
